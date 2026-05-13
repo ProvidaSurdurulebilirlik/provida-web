@@ -310,19 +310,6 @@
       display: block;
     }
     @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .hero-wheel-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44%;
-      height: 44%;
-      background: transparent;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
       padding: 1rem;
       box-shadow: 0 0 0 1px var(--gray-100);
@@ -649,7 +636,7 @@
   <!-- ===== NAV ===== -->
   <nav class="nav" id="mainNav">
     <a href="index.html" class="nav-logo">
-      <img src="img/logo.png" alt="Provida" style="height:38px;width:auto;">
+      <img src="img/logo_navy.png" alt="Provida" style="height:38px;width:auto;">
     </a>
     <ul class="nav-menu">
       <li><a href="hizmetler.html">Hizmetler</a></li>
@@ -690,7 +677,7 @@
       </div>
       <div class="hero-visual">
         <div class="hero-wheel-wrap">
-          <svg id="heroWheel" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" style="width:420px;height:420px;animation:rotateSlow 80s linear infinite;"></svg>
+          <img src="img/sdg_wheel.png" alt="17 Sürdürülebilir Kalkınma Hedefi" class="hero-wheel-spin">
         </div>
       </div>
     </div>
@@ -914,7 +901,7 @@
     <div class="footer-grid">
       <div>
         <a href="index.html" class="nav-logo">
-          <img src="img/logo.png" alt="Provida" style="height:28px;width:auto;filter:brightness(0) invert(1);">
+          <img src="img/logo_white.png" alt="Provida" style="height:28px;width:auto;">
         </a>
         <p class="footer-brand-desc">Denizli merkezli, Türkiye geneli sürdürülebilirlik danışmanlığı. Saha deneyiminden gelen uzmanlarla, devlet desteklerine bağlanan çözümler.</p>
       </div>
@@ -983,57 +970,6 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // ─── SDG Hero Wheel ───────────────────────────────
-    const SDG=[
-      {num:1,color:'#E5243B'},{num:2,color:'#DDA63A'},{num:3,color:'#4C9F38'},
-      {num:4,color:'#C5192D'},{num:5,color:'#FF3A21'},{num:6,color:'#26BDE2'},
-      {num:7,color:'#FCC30B'},{num:8,color:'#A21942'},{num:9,color:'#FD6925'},
-      {num:10,color:'#DD1367'},{num:11,color:'#FD9D24'},{num:12,color:'#BF8B2E'},
-      {num:13,color:'#3F7E44'},{num:14,color:'#0A97D9'},{num:15,color:'#56C02B'},
-      {num:16,color:'#00689D'},{num:17,color:'#19486A'}
-    ];
-    const ICONS=[
-      '<circle cx="0" cy="-3" r="2.2" fill="white" stroke="none"/><path d="M-3.5,2 Q0,-0.5 3.5,2"/>',
-      '<path d="M-4.5,0.5 A4.5,3 0 0,0 4.5,0.5 L4,2.5 L-4,2.5 Z"/><line x1="-2" y1="-4.5" x2="-1.5" y2="-0.5"/><line x1="0" y1="-5.5" x2="0" y2="-0.5"/><line x1="2" y1="-4.5" x2="1.5" y2="-0.5"/>',
-      '<line x1="0" y1="-5.5" x2="0" y2="5.5" stroke-width="2.2"/><line x1="-5.5" y1="0" x2="5.5" y2="0" stroke-width="2.2"/>',
-      '<path d="M-5,-5.5 L0,-4.5 L0,5.5 L-5,4.5 Z M5,-5.5 L0,-4.5 L0,5.5 L5,4.5 Z"/>',
-      '<circle cx="0" cy="-2" r="3.2"/><line x1="0" y1="1.2" x2="0" y2="5.5"/><line x1="-2.2" y1="3.8" x2="2.2" y2="3.8"/>',
-      '<path d="M0,-6 C5.5,-2 5.5,2 0,5.5 C-5.5,2 -5.5,-2 0,-6 Z" fill="white" stroke="none"/>',
-      '<polygon points="3,-5 -2,0.5 1.5,0.5 -3,5.5" fill="white" stroke="none"/>',
-      '<polyline points="-5.5,4 -2.5,-1.5 0,1.5 2.5,-2.5 5.5,0.5"/><line x1="-5.5" y1="5" x2="5.5" y2="5"/>',
-      '<polygon points="0,-5.5 4.7,-2.75 4.7,2.75 0,5.5 -4.7,2.75 -4.7,-2.75"/><circle cx="0" cy="0" r="2.2" fill="none"/>',
-      '<polyline points="-3,-1.5 0,-5.5 3,-1.5"/><line x1="0" y1="-5.5" x2="0" y2="0"/><polyline points="-3,1.5 0,5.5 3,1.5"/><line x1="0" y1="0" x2="0" y2="5.5"/>',
-      '<rect x="-5.5" y="0.5" width="3" height="5"/><rect x="-0.5" y="-2.5" width="2" height="8"/><rect x="2.5" y="-5" width="3" height="10.5"/>',
-      '<path d="M0,-5.5 L3.5,-1.5 L1.5,-1.5 A3.5,3.5 0 0,1 3.5,2.5 L5,1.5 L5,5 L2,5 L3.5,2.5 A2,2 0 0,0 0,-3.5 Z M0,5.5 L-3.5,1.5 L-1.5,1.5 A3.5,3.5 0 0,1 -3.5,-2.5 L-5,-1.5 L-5,-5 L-2,-5 L-3.5,-2.5 A2,2 0 0,0 0,3.5 Z" fill="white" stroke="none"/>',
-      '<circle cx="0" cy="0" r="5.5"/><line x1="-5.5" y1="0" x2="5.5" y2="0"/><path d="M0,-5.5 Q4.5,0 0,5.5 Q-4.5,0 0,-5.5"/>',
-      '<path d="M-5.5,0 Q-3,-4 0,0 Q3,4 5.5,0"/><path d="M-4.5,3.5 Q-2,-0.5 0,3.5 Q2,7.5 4.5,3.5"/>',
-      '<line x1="0" y1="5.5" x2="0" y2="0"/><polygon points="0,-5.5 5,2.5 -5,2.5" fill="white" stroke="none"/>',
-      '<path d="M-5,0 Q-5,-5.5 0,-5.5 Q5,-5.5 5,0 L4,3.5 L0,5.5 L-4,3.5 Z"/><line x1="0" y1="5.5" x2="0" y2="7"/>',
-      '<circle cx="-2.5" cy="0" r="3.8"/><circle cx="2.5" cy="0" r="3.8"/>'
-    ];
-    (function(){
-      const svg=document.getElementById('heroWheel');
-      if(!svg)return;
-      const CX=210,CY=210,OR=200,IR=116,N=17;
-      const SEG=2*Math.PI/N,S0=-Math.PI/2;
-      function pt(a,r){return[CX+r*Math.cos(a),CY+r*Math.sin(a)]}
-      let h='';
-      SDG.forEach((s,i)=>{
-        const a1=S0+i*SEG,a2=S0+(i+1)*SEG;
-        const[ox1,oy1]=pt(a1,OR),[ox2,oy2]=pt(a2,OR);
-        const[ix2,iy2]=pt(a2,IR),[ix1,iy1]=pt(a1,IR);
-        const d=`M${ox1},${oy1} A${OR},${OR} 0 0,1 ${ox2},${oy2} L${ix2},${iy2} A${IR},${IR} 0 0,0 ${ix1},${iy1} Z`;
-        h+=`<path d="${d}" fill="${s.color}" stroke="#001233" stroke-width="1.2"/>`;
-        const midA=a1+SEG/2;
-        const[nx,ny]=pt(midA,IR+(OR-IR)*.76);
-        const[ix,iy]=pt(midA,IR+(OR-IR)*.37);
-        const rot=(midA*180/Math.PI)+90;
-        h+=`<text x="${nx}" y="${ny}" transform="rotate(${rot},${nx},${ny})" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="700" font-size="11" font-family="Poppins,sans-serif">${s.num}</text>`;
-        h+=`<g transform="translate(${ix},${iy}) rotate(${rot}) scale(1.85)" fill="none" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${ICONS[i]}</g>`;
-      });
-      svg.innerHTML=h;
-    })();
   </script>
 </body>
 </html>
