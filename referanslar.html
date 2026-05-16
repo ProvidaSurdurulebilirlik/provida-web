@@ -67,6 +67,10 @@
 
     /* PAGE HERO */
     .page-hero { padding: calc(var(--nav-height) + 4.5rem) 2rem 4.5rem; background: var(--navy-bg); text-align: center; position: relative; overflow: hidden; }
+    .page-hero-video { padding: calc(var(--nav-height) + 5rem) 2rem 5rem; min-height: 460px; display: flex; align-items: center; justify-content: center; }
+    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.4; }
+    .hero-video-overlay { position: absolute; inset: 0; background: var(--navy-bg); opacity: 0.65; z-index: 1; }
+    .page-hero-content { position: relative; z-index: 2; }
     .page-hero-deco { position: absolute; top: -30%; right: -8%; width: 450px; height: 450px; opacity: 0.05; pointer-events: none; border-radius: 50%; }
     .page-hero .section-tag { color: var(--green-light); }
     .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
@@ -140,11 +144,16 @@
   </div>
 
   <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-deco sdg-wheel"></div>
-    <p class="section-tag">Referanslarımız</p>
-    <h1>Birlikte Çalıştığımız Kurumlar</h1>
-    <p>Tekstil, kimya, enerji, tarım, madencilik ve daha pek çok sektörden 50'yi aşkın kurumla sürdürülebilirlik yolculuklarında birlikte ilerliyoruz.</p>
+  <section class="page-hero page-hero-video">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="videos/hero-referanslar.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="page-hero-content">
+      <p class="section-tag">Referanslarımız</p>
+      <h1>Birlikte Çalıştığımız Kurumlar</h1>
+      <p>Tekstil, kimya, enerji, tarım, madencilik ve daha pek çok sektörden 50'yi aşkın kurumla sürdürülebilirlik yolculuklarında birlikte ilerliyoruz.</p>
+    </div>
   </section>
 
   <!-- LOGO MARQUEE -->
