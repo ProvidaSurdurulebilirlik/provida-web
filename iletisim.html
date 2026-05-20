@@ -328,7 +328,7 @@
             <div id="formContent">
               <div class="form-title">Görüşme Talep Edin</div>
               <p class="form-subtitle">Formu doldurun, en geç bir iş günü içinde geri dönelim.</p>
-              <form id="contactForm" novalidate>
+              <form id="contactForm" action="https://formspree.io/f/mwvzvgzq" method="POST" novalidate>
                 <div class="form-row">
                   <div class="form-group">
                     <label for="name">Adınız Soyadınız *</label>
@@ -446,9 +446,9 @@
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Form submit
+    // Form submit — Formspree
     const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
@@ -458,8 +458,28 @@
         alert('Lütfen zorunlu alanları doldurun.');
         return;
       }
-      document.getElementById('formContent').style.display = 'none';
-      document.getElementById('formSuccess').classList.add('show');
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Gönderiliyor...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/mwvzvgzq', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (res.ok) {
+          document.getElementById('formContent').style.display = 'none';
+          document.getElementById('formSuccess').classList.add('show');
+        } else {
+          alert('Bir hata oluştu. Lütfen info@provida.com.tr adresine mail atın.');
+          btn.textContent = 'Görüşme Talep Et →';
+          btn.disabled = false;
+        }
+      } catch {
+        alert('Bağlantı hatası. Lütfen info@provida.com.tr adresine mail atın.');
+        btn.textContent = 'Görüşme Talep Et →';
+        btn.disabled = false;
+      }
     });
   </script>
 </body>
