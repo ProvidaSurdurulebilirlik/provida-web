@@ -92,7 +92,28 @@
     /* GALERI */
     .gallery-section { padding: 5rem 0; background: var(--off-white); }
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
-    .gallery-placeholder { background: var(--gray-100); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: var(--gray-400); font-size: 0.875rem; border: 2px dashed var(--gray-200); }
+    .gallery-item { position: relative; overflow: hidden; border-radius: var(--radius-lg); cursor: pointer; aspect-ratio: 4/3; background: var(--gray-100); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,18,51,0.45) 100%); opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item .zoom-icon { position: absolute; bottom: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: opacity 0.3s, transform 0.3s; z-index: 2; }
+    .gallery-item:hover .zoom-icon { opacity: 1; transform: scale(1); }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; padding: 20px; }
+    .lightbox.open { display: flex; }
+    .lb-inner { position: relative; max-width: min(1100px, 95vw); display: flex; align-items: center; justify-content: center; }
+    .lb-inner img { max-width: 100%; max-height: 88vh; border-radius: 6px; box-shadow: 0 24px 80px rgba(0,0,0,0.6); animation: lbIn 0.22s ease; display: block; }
+    @keyframes lbIn { from { opacity: 0; transform: scale(0.93); } to { opacity: 1; transform: scale(1); } }
+    .lb-close { position: fixed; top: 18px; right: 22px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 1.3rem; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10001; }
+    .lb-close:hover { background: rgba(255,255,255,0.25); }
+    .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-size: 1.4rem; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10001; }
+    .lb-nav:hover { background: rgba(255,255,255,0.25); }
+    .lb-prev { left: 14px; }
+    .lb-next { right: 14px; }
+    .lb-counter { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.55); font-size: 0.82rem; z-index: 10001; font-family: var(--font-body); letter-spacing: 0.05em; }
+    @media (max-width: 640px) { .lb-nav { display: none; } .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
 
     /* CTA */
     .cta-banner { padding: 5rem 2rem; background: var(--green); text-align: center; }
@@ -187,7 +208,7 @@
         <div class="logo-item"><img src="img/logos/logo-18.png" alt="Halmer Tekstil" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-19.png" alt="Haus" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-20.png" alt="Humanica" loading="lazy"></div>
-        <div class="logo-item"><img src="img/logos/logo-21.png" alt="Huso Boss" loading="lazy"></div>
+        <div class="logo-item"><img src="img/logos/logo-21.png" alt="Hugo Boss" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-22.png" alt="Inditex" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-23.png" alt="Kaptan Grup Geri Dönüşüm" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-24.png" alt="Lider Bentonit" loading="lazy"></div>
@@ -232,7 +253,7 @@
         <div class="logo-item"><img src="img/logos/logo-18.png" alt="Halmer Tekstil" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-19.png" alt="Haus" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-20.png" alt="Humanica" loading="lazy"></div>
-        <div class="logo-item"><img src="img/logos/logo-21.png" alt="Huso Boss" loading="lazy"></div>
+        <div class="logo-item"><img src="img/logos/logo-21.png" alt="Hugo Boss" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-22.png" alt="Inditex" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-23.png" alt="Kaptan Grup Geri Dönüşüm" loading="lazy"></div>
         <div class="logo-item"><img src="img/logos/logo-24.png" alt="Lider Bentonit" loading="lazy"></div>
@@ -261,7 +282,7 @@
     </div>
   </section>
 
-  <!-- GALERİ — fotoğraflar eklenince aktif olacak -->
+  <!-- GALERİ -->
   <section class="gallery-section">
     <div class="container">
       <div class="fade-up">
@@ -270,15 +291,34 @@
         <p class="section-sub">Müşteri ziyaretleri, eğitimler, çalıştaylar ve saha çalışmalarından kareler.</p>
       </div>
       <div class="gallery-grid fade-up">
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
-        <div class="gallery-placeholder">Fotoğraflar yakında eklenecek</div>
+        <div class="gallery-item" data-idx="0"><img src="img/gallery/gallery-01-thumb.webp" data-full="img/gallery/gallery-01.webp" alt="Provida eğitim" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="1"><img src="img/gallery/gallery-02-thumb.webp" data-full="img/gallery/gallery-02.webp" alt="Provida atölye" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="2"><img src="img/gallery/gallery-03-thumb.webp" data-full="img/gallery/gallery-03.webp" alt="Provida müşteri ziyareti" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="3"><img src="img/gallery/gallery-04-thumb.webp" data-full="img/gallery/gallery-04.webp" alt="Provida saha çalışması" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="4"><img src="img/gallery/gallery-05-thumb.webp" data-full="img/gallery/gallery-05.webp" alt="Provida toplantı" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="5"><img src="img/gallery/gallery-06-thumb.webp" data-full="img/gallery/gallery-06.webp" alt="Provida çalışma" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="6"><img src="img/gallery/gallery-07-thumb.webp" data-full="img/gallery/gallery-07.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="7"><img src="img/gallery/gallery-08-thumb.webp" data-full="img/gallery/gallery-08.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="8"><img src="img/gallery/gallery-09-thumb.webp" data-full="img/gallery/gallery-09.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="9"><img src="img/gallery/gallery-10-thumb.webp" data-full="img/gallery/gallery-10.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="10"><img src="img/gallery/gallery-11-thumb.webp" data-full="img/gallery/gallery-11.webp" alt="Provida sunum" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="11"><img src="img/gallery/gallery-12-thumb.webp" data-full="img/gallery/gallery-12.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="12"><img src="img/gallery/gallery-13-thumb.webp" data-full="img/gallery/gallery-13.webp" alt="Provida etkinlik" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+        <div class="gallery-item" data-idx="13"><img src="img/gallery/gallery-14-thumb.webp" data-full="img/gallery/gallery-14.webp" alt="Provida saha" loading="lazy"><span class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#002c6e" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf görüntüleyici">
+    <button class="lb-close" id="lbClose" aria-label="Kapat">&#10005;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Önceki">&#8592;</button>
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="Galeri fotoğrafı">
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Sonraki">&#8594;</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
 
   <!-- CTA -->
   <section class="cta-banner">
@@ -321,13 +361,67 @@
   </footer>
 
   <script>
-    document.getElementById('mainNav').classList.add.bind(document.getElementById('mainNav').classList);
+    // Nav
     document.getElementById('mainNav').classList.add('scrolled');
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('open');
     });
-    const obs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:0.1});
+
+    // Scroll animasyonları
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // Galeri animasyonu (stagger)
+    const galObs = new IntersectionObserver(es => {
+      es.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.style.opacity = '1', i * 60);
+          galObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.5s ease, transform 0.45s ease';
+      galObs.observe(el);
+    });
+
+    // Lightbox
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lbImg');
+    const lbCounter = document.getElementById('lbCounter');
+    const items     = Array.from(document.querySelectorAll('.gallery-item'));
+    let current     = 0;
+
+    function openLb(idx) {
+      current = idx;
+      const img = items[idx].querySelector('img');
+      lbImg.src = img.dataset.full;
+      lbImg.alt = img.alt;
+      lbCounter.textContent = (idx + 1) + ' / ' + items.length;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { lbImg.src = ''; }, 300);
+    }
+    function go(dir) { openLb((current + dir + items.length) % items.length); }
+
+    items.forEach((el, idx) => el.addEventListener('click', () => openLb(idx)));
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); go(-1); });
+    document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); go(1); });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLb();
+      if (e.key === 'ArrowLeft')   go(-1);
+      if (e.key === 'ArrowRight')  go(1);
+    });
   </script>
 </body>
 </html>
