@@ -252,7 +252,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Proje Fikrinizi Birlikte Değerlendirelim</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/BJGyyIgEwZs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-0" src="https://www.youtube.com/embed/BJGyyIgEwZs?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -280,7 +280,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Denetim Sürecinizi Birlikte Planlayalım</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/eiU4iAgqtX0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-1" src="https://www.youtube.com/embed/eiU4iAgqtX0?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -308,7 +308,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Teknik Analiz Sürecinizi Başlatalım</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/RGHAKbf2nD4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-2" src="https://www.youtube.com/embed/RGHAKbf2nD4?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -336,7 +336,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Yol Haritanızı Birlikte Oluşturalım</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/DrS11cIZCco" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-3" src="https://www.youtube.com/embed/DrS11cIZCco?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -366,7 +366,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Eğitim Programınızı Birlikte Tasarlayalım</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/4gf8EYT9T4Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-4" src="https://www.youtube.com/embed/4gf8EYT9T4Y?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -394,7 +394,7 @@
           </div>
           <a href="iletisim.html" class="btn btn-primary">Raporlama ve İletişim Sürecinizi Planlayalım</a>
         </div>
-        <div class="service-visual"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/plvNuuAMooU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="service-visual"><div class="video-wrap"><iframe id="yt-5" src="https://www.youtube.com/embed/plvNuuAMooU?enablejsapi=1&rel=0&modestbranding=1&mute=1&playsinline=1&origin=https://provida.com.tr" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
         </div>
       </div>
     </div>
@@ -454,6 +454,53 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var ytPlayers = {};
+    var ytActive  = null;
+
+    window.onYouTubeIframeAPIReady = function () {
+      document.querySelectorAll('.video-wrap iframe[id^="yt-"]').forEach(function (iframe) {
+        ytPlayers[iframe.id] = new YT.Player(iframe.id, {
+          events: {
+            onStateChange: function (e) {
+              if (e.data === YT.PlayerState.PLAYING) {
+                ytActive = ytPlayers[iframe.id];
+              }
+            }
+          }
+        });
+      });
+      setupVideoObs();
+    };
+
+    function setupVideoObs() {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var iframe = entry.target.querySelector('iframe[id^="yt-"]');
+          if (!iframe) return;
+          var player = ytPlayers[iframe.id];
+          if (!player || typeof player.playVideo !== 'function') return;
+
+          if (entry.isIntersecting) {
+            if (ytActive && ytActive !== player) {
+              try { ytActive.pauseVideo(); } catch(e) {}
+            }
+            player.playVideo();
+            ytActive = player;
+          } else {
+            try { player.pauseVideo(); } catch(e) {}
+          }
+        });
+      }, { threshold: 0.55 });
+
+      document.querySelectorAll('.video-wrap').forEach(function (wrap) {
+        obs.observe(wrap);
+      });
+    }
   </script>
 </body>
 </html>
