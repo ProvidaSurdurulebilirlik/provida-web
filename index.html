@@ -301,10 +301,10 @@
     .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--green); }
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 5.5vw, 4.75rem);
+      font-size: clamp(2.25rem, 4vw, 3.75rem);
       font-weight: 600;
       color: var(--navy);
-      line-height: 1.08;
+      line-height: 1.12;
       margin-bottom: 1.5rem;
       letter-spacing: -0.01em;
     }
@@ -358,7 +358,43 @@
 
     /* About Short */
     .about-short-section { padding: 5rem 0; background: var(--white); }
-    .about-short-inner { max-width: 680px; }
+    .about-short-inner {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--navy-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-stat-item {
+      background: var(--navy-bg);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .about-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.375rem;
+    }
+    .about-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+    @media (max-width: 900px) {
+      .about-short-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
 
     /* Logo Marquee */
     .logos-section { padding: 5rem 0 4rem; background: var(--off-white); overflow: hidden; }
@@ -796,45 +832,33 @@
     </div>
   </section>
 
-  <!-- ===== STATS ===== -->
-  <section class="stats">
-    <div class="container">
-      <p class="section-tag" style="text-align:center;margin-bottom:2rem;">Sayılarla Provida</p>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-num" data-target="50" data-suffix="+">0+</span>
-          <span class="stat-label">Müşteri Firma</span>
-          <span class="stat-desc">Farklı sektörlerden kurumlarla sürdürülebilirlik, denetim, proje ve eğitim süreçlerinde birlikte çalışıyoruz.</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-target="5" data-suffix="+">0+</span>
-          <span class="stat-label">Çözüm Ortağı</span>
-          <span class="stat-desc">Her kurumun ihtiyacına göre farklı uzmanlıkları bir araya getiren güçlü bir çözüm ortaklığı modeliyle ilerliyoruz.</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-target="50" data-suffix="+">0+</span>
-          <span class="stat-label">Proje</span>
-          <span class="stat-desc">Sürdürülebilirlik stratejisi, finansmana erişim, karbon ayak izi, denetimler ve eğitim alanlarında projeler geliştiriyoruz.</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-target="15" data-suffix=" Yıl">0 Yıl</span>
-          <span class="stat-label">Deneyim</span>
-          <span class="stat-desc">Saha deneyimi, teknik uzmanlık ve sürdürülebilirlik danışmanlığını bir araya getiren güçlü bir birikim.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== PROVIDA KİMDİR ===== -->
   <section class="about-short-section">
     <div class="container">
       <div class="about-short-inner">
         <div class="about-short-text fade-up">
           <p class="section-tag">Provida Kimdir?</p>
-          <h2 class="section-title">Sürdürülebilirlik dönüşümünü<br>kurumlar için uygulanabilir kılıyoruz.</h2>
-          <p class="section-sub" style="margin-bottom:1.5rem;">Provida, sürdürülebilirliği yalnızca çevresel bir sorumluluk olarak değil; sosyal, ekonomik ve kurumsal dönüşümün temel bir parçası olarak ele alan bir danışmanlık firmasıdır.</p>
-          <p style="font-size:.9375rem;color:var(--gray-600);line-height:1.75;margin-bottom:2rem;">Kurumların sürdürülebilirlik yolculuğunda nereden başlayacağını netleştirir, uygun finansman kaynaklarını belirler, müşteri beklentilerine uyum süreçlerini yönetir ve ekiplerin sürdürülebilirlik kapasitesini güçlendiren uygulamalı çözümler geliştirir.</p>
+          <h2 class="section-title">Sürdürülebilirlik dönüşümünü kurumlar için uygulanabilir kılıyoruz.</h2>
+          <p class="section-sub" style="margin-bottom:2rem;">Teknik analiz, finansmana erişim, müşteri denetimleri ve uygulamalı eğitimlerle kurumların sürdürülebilirlik yolculuğunu somut adımlara dönüştürüyoruz.</p>
           <a href="hakkimizda.html" class="btn btn-outline">Provida'yı Yakından Tanıyın &rarr;</a>
+        </div>
+        <div class="about-stat-grid fade-up delay-1">
+          <div class="about-stat-item">
+            <span class="about-stat-num">50+</span>
+            <span class="about-stat-label">Müşteri Firma</span>
+          </div>
+          <div class="about-stat-item">
+            <span class="about-stat-num">15</span>
+            <span class="about-stat-label">Yıl Saha Deneyimi</span>
+          </div>
+          <div class="about-stat-item">
+            <span class="about-stat-num">50+</span>
+            <span class="about-stat-label">Proje</span>
+          </div>
+          <div class="about-stat-item">
+            <span class="about-stat-num">5</span>
+            <span class="about-stat-label">Uzman, Tek Ekip</span>
+          </div>
         </div>
       </div>
     </div>
@@ -996,8 +1020,8 @@
   <section class="cta-banner">
     <div class="cta-deco sdg-wheel"></div>
     <div class="cta-deco-left sdg-wheel"></div>
-    <h2>Sürdürülebilirlik çalışmalarınızı<br><em>birlikte somutlaştıralım.</em></h2>
-    <p style="max-width:800px;margin-left:auto;margin-right:auto;">Kurumunuzun mevcut durumunu analiz etmek, uygun teşvik ve hibe fırsatlarını değerlendirmek, müşteri denetimlerine hazırlanmak ya da ekibiniz için uygulamalı eğitim programları tasarlamak isterseniz bizimle iletişime geçebilirsiniz.</p>
+    <h2>Sürdürülebilirlik çalışmalarınızı <em>birlikte somutlaştıralım.</em></h2>
+    <p style="max-width:520px;margin-left:auto;margin-right:auto;">Nereden başlayacağınızı bilmiyorsanız birlikte değerlendirebiliriz.</p>
     <div class="cta-contact-info" style="margin-bottom:2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
       <span style="color:rgba(255,255,255,.85);font-size:.9375rem;">✉ info@provida.com.tr</span>
       <span style="color:rgba(255,255,255,.85);font-size:.9375rem;">✆ 0 505 644 56 58</span>
@@ -1087,32 +1111,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Counter animation
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const step = target / (duration / 16);
-      let current = 0;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          el.textContent = target + suffix;
-          clearInterval(timer);
-        } else {
-          el.textContent = Math.floor(current) + suffix;
-        }
-      }, 16);
-    }
-    const counterObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !e.target.dataset.counted) {
-          e.target.dataset.counted = '1';
-          animateCounter(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObs.observe(el));
   </script>
 </body>
 </html>
