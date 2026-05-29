@@ -277,35 +277,49 @@
       z-index: 0;
     }
     .hero-inner {
-      max-width: var(--max-width);
+      max-width: 800px;
       margin: 0 auto;
       padding: 4rem 2rem 5rem;
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      gap: 4rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       position: relative;
       z-index: 1;
     }
-    .hero-eyebrow {
-      display: inline-flex;
+
+    /* Animasyonlu logo satırı */
+    .hero-logo-row {
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      width: min(740px, 92vw);
+      margin-bottom: 2.5rem;
+    }
+    .logo-part { height: auto; flex-shrink: 0; }
+    .logo-part-left  { width: 32.4%; }
+    .logo-part-right { width: 51.6%; }
+    .logo-wheel-spin {
+      width: 16%;
+      height: auto;
+      flex-shrink: 0;
+      animation: rotateSlow 20s linear infinite;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--green);
       margin-bottom: 1.5rem;
     }
-    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--green); }
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.25rem, 4vw, 3.75rem);
+      font-size: clamp(1.75rem, 3.2vw, 3rem);
       font-weight: 600;
       color: var(--navy);
-      line-height: 1.12;
-      margin-bottom: 1.5rem;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
       letter-spacing: -0.01em;
     }
     .hero-title em { font-style: italic; color: var(--green); }
@@ -314,23 +328,15 @@
       color: var(--gray-600);
       line-height: 1.75;
       margin-bottom: 2.5rem;
-      max-width: 480px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
     /* Hero visual — SDG wheel */
-    .hero-visual { display: flex; justify-content: center; align-items: center; }
-    .hero-wheel-wrap {
-      width: 420px;
-      height: 420px;
-      position: relative;
-    }
-    .hero-wheel-spin {
-      width: 100%;
-      height: 100%;
-      animation: rotateSlow 80s linear infinite;
-      display: block;
-    }
+    .hero-visual { display: none; }
+    .hero-wheel-wrap { display: none; }
     @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
       text-align: center;
       padding: 1rem;
@@ -748,8 +754,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
+      .hero-inner { padding: 3rem 1rem 3.5rem; }
+      .hero-logo-row { width: 95vw; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .team-grid { grid-template-columns: repeat(3, 1fr); }
@@ -812,24 +818,27 @@
   <section class="hero">
     <div class="hero-blob"></div>
     <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Biz dünyayı atalarımızdan miras değil, çocuklarımızdan emanet aldık.</div>
-        <h1 class="hero-title">
-          Sürdürülebilirlik yolculuğunuzu<br>
-          <em>ölçülebilir, uygulanabilir</em><br>
-          ve fonlanabilir çözümlerle<br>birlikte tasarlıyoruz.
-        </h1>
-        <p class="hero-body">Kurumların sürdürülebilirlik dönüşümünü teknik analiz, proje geliştirme, finansmana erişim, müşteri denetimleri ve uygulamalı eğitimlerle destekliyoruz.</p>
-        <div class="hero-actions">
-          <a href="hizmetler.html" class="btn btn-primary">Hizmetlerimizi İnceleyin</a>
-          <a href="iletisim.html" class="btn btn-ghost">Bizimle İletişime Geçin</a>
-        </div>
+
+      <!-- Dönen çarklı logo -->
+      <div class="hero-logo-row">
+        <img src="img/logo_left.png" alt="" class="logo-part logo-part-left">
+        <img src="img/wheel_clean.png" alt="17 Sürdürülebilir Kalkınma Hedefi" class="logo-wheel-spin">
+        <img src="img/logo_right.png" alt="" class="logo-part logo-part-right">
       </div>
-      <div class="hero-visual">
-        <div class="hero-wheel-wrap">
-          <img src="img/sdg_wheel.png" alt="17 Sürdürülebilir Kalkınma Hedefi" class="hero-wheel-spin">
-        </div>
+
+      <div class="hero-eyebrow">Biz dünyayı atalarımızdan miras değil, çocuklarımızdan emanet aldık.</div>
+
+      <h1 class="hero-title">
+        Sürdürülebilirlik yolculuğunuzu <em>ölçülebilir, uygulanabilir</em> ve fonlanabilir çözümlerle birlikte tasarlıyoruz.
+      </h1>
+
+      <p class="hero-body">Kurumların sürdürülebilirlik dönüşümünü teknik analiz, proje geliştirme, finansmana erişim, müşteri denetimleri ve uygulamalı eğitimlerle destekliyoruz.</p>
+
+      <div class="hero-actions">
+        <a href="hizmetler.html" class="btn btn-primary">Hizmetlerimizi İnceleyin</a>
+        <a href="iletisim.html" class="btn btn-ghost">Bizimle İletişime Geçin</a>
       </div>
+
     </div>
   </section>
 
