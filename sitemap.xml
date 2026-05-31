@@ -44,4 +44,47 @@
     <priority>0.6</priority>
   </url>
 
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/tubitak-kosgeb-projelendirme.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/musteri-denetimleri.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/karbon-ayak-izi-cbam.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/enerji-proses-verimliligi.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/surdurulebilirlik-stratejisi.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.provida.com.tr/hizmetler/gri-tsrs-raporlama.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
