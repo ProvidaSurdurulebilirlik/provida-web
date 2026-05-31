@@ -1,17 +1,18 @@
-# Provida Sürdürülebilirlik Danışmanlığı
+# Provida Danışmanlık
 
-> Sürdürülebilirlik yolculuğunuzu ölçülebilir, uygulanabilir ve fonlanabilir çözümlerle birlikte tasarlıyoruz.
+> Kurumsal dönüşümü ölçülebilir, uygulanabilir ve fonlanabilir çözümlerle birlikte tasarlıyoruz.
 
-Provida, kurumların çevresel, sosyal ve yönetişim (ESG) alanındaki dönüşüm süreçlerini teknik analiz, proje geliştirme, finansmana erişim, müşteri denetimleri ve uygulamalı eğitimlerle destekleyen Denizli ve İzmir merkezli bir danışmanlık firmasıdır.
+Provida; sanayi kuruluşlarının ve kurumsal firmaların çevresel, sosyal ve yönetişim (ESG) dönüşüm süreçlerini teknik analiz, proje geliştirme, finansmana erişim, müşteri denetimleri ve uygulamalı eğitimlerle destekleyen Türkiye genelinde hizmet veren bir danışmanlık firmasıdır. Tekstil, kimya, metal, gıda, enerji, madencilik ve ambalaj dahil geniş sektör yelpazenine hizmet verir.
 
 ## Hizmetler
 
-- **Teşvikler ve Projelendirme**: TÜBİTAK, KOSGEB, kalkınma ajansları, AB fonları ve özel hibe programlarıyla sürdürülebilirlik hedeflerini fonlanabilir projelere dönüştürme
-- **Müşteri Denetimleri ve Uyum Süreçleri**: Sedex/SMETA, Inditex GTW 3.0, BSCI ve benzeri müşteri denetimleri için uçtan uca hazırlık ve yönetim
-- **Teknik Sürdürülebilirlik**: Enerji, su, hammadde, atık ve emisyon yönetimi; karbon ayak izi hesaplama (ISO 14064, GHG Protocol, Scope 1-2-3); proses verimliliği
-- **Sürdürülebilirlik Stratejisi ve Yol Haritası**: Olgunluk analizi, mevcut durum değerlendirmesi, uygulanabilir aksiyon planları
-- **Eğitimler ve Çalıştaylar**: Çıkış Noktası (YZ destekli senaryo simülasyonu), Yeşil Yaka Kampı, Odak Noktası (ESG önceliklendirme çalıştayı), kuruma özel programlar
-- **Sürdürülebilirlik Raporlama ve İletişim**: GRI, TSRS, ESG raporları; sürdürülebilirlik iletişim stratejisi
+- **Teşvikler ve Projelendirme**: TÜBİTAK 1501, 1507, 1707; KOSGEB kapasite geliştirme ve yeşil sanayi destekleri; kalkınma ajansları (GEKA, ZAFER, MEVKA, İZKA); AB fonları. Proje fikrinden başvuru dosyasına tam süreç desteği.
+- **Müşteri Denetimleri ve Uyum**: Sedex/SMETA 2 ve 4 sütun, amfori BSCI, SLCP FSLM doğrulama, Inditex Green to Wear 2.1, SA 8000. Boşluk analizi, eylem planı ve denetim eşliği.
+- **Karbon Ayak İzi ve CBAM Hazırlığı**: Kapsam 1-2-3 karbon emisyon hesaplama, ISO 14064, GHG Protocol. CBAM (Sınırda Karbon Düzenleme Mekanizması) kapsamındaki sektörler için beyan hazırlığı: demir-çelik, alüminyum, çimento, gübre, elektrik, hidrojen.
+- **Enerji Verimliliği ve Proses Optimizasyonu**: ISO 50001 enerji yönetim sistemi, enerji etüdü, TEP hesaplama, Verimlilik Artırıcı Proje (VAP) başvurusu, su tasarrufu.
+- **Sürdürülebilirlik Stratejisi ve ESG Yol Haritası**: Olgunluk analizi, materiality değerlendirmesi, ESG risk ve fırsat haritalaması, aksiyon planı.
+- **Eğitimler ve Çalıştaylar**: Çıkış Noktası (YZ destekli senaryo simülasyonu), Yeşil Yaka Kampı, Odak Noktası (ESG önceliklendirme çalıştayı), kuruma özel programlar.
+- **GRI, TSRS ve ESG Raporlaması**: GRI Universal Standards, TSRS (Türkiye Sürdürülebilirlik Raporlama Standartları), TCFD, CDP ve entegre raporlama. Sürdürülebilirlik raporu hazırlama ve paydaş iletişimi.
 
 ## Ekip
 
@@ -19,7 +20,7 @@ Provida, kurumların çevresel, sosyal ve yönetişim (ESG) alanındaki dönüş
 - **Özlem Ateş** — Sürdürülebilirlik ve Uyum Danışmanı (Ege Üniv. Kimya; B Sınıfı İSG; GTW 3.0, SLCP, FEM)
 - **Esra Kılıç** — Sürdürülebilirlik İletişimi ve Pazarlama Danışmanı (PAÜ Halkla İlişkiler)
 - **Beytullah Ulaş** — Proses Verimliliği ve Teknik Sürdürülebilirlik Danışmanı (patentli teknolojiler; enerji/su tasarrufu)
-- **Ekim Erdoğan** — Tekstil Mühendisi / Proses ve Kalite Yönetimi Uzmanı (EÜ Tekstil Müh.; Six Sigma Black Belt; 20 yıl tekstil)
+- **Ekim Erdoğan** — Tekstil Mühendisi / Proses ve Kalite Yönetimi Uzmanı (EÜ Tekstil Müh.; Six Sigma Black Belt; 20 yıl saha deneyimi)
 
 ## İletişim
 
@@ -31,8 +32,14 @@ Provida, kurumların çevresel, sosyal ve yönetişim (ESG) alanındaki dönüş
 ## Sayfalar
 
 - [Ana Sayfa](https://www.provida.com.tr/)
-- [Hizmetler](https://www.provida.com.tr/hizmetler.html)
 - [Hakkımızda](https://www.provida.com.tr/hakkimizda.html)
+- [Hizmetler](https://www.provida.com.tr/hizmetler.html)
+- [TÜBİTAK ve KOSGEB Proje Danışmanlığı](https://www.provida.com.tr/hizmetler/tubitak-kosgeb-projelendirme.html)
+- [Müşteri Denetimleri ve Sosyal Uygunluk](https://www.provida.com.tr/hizmetler/musteri-denetimleri.html)
+- [Karbon Ayak İzi ve CBAM Hazırlığı](https://www.provida.com.tr/hizmetler/karbon-ayak-izi-cbam.html)
+- [Enerji Verimliliği ve Proses Optimizasyonu](https://www.provida.com.tr/hizmetler/enerji-proses-verimliligi.html)
+- [Sürdürülebilirlik Stratejisi ve ESG Yol Haritası](https://www.provida.com.tr/hizmetler/surdurulebilirlik-stratejisi.html)
+- [GRI, TSRS ve ESG Raporlaması](https://www.provida.com.tr/hizmetler/gri-tsrs-raporlama.html)
 - [Referanslar](https://www.provida.com.tr/referanslar.html)
 - [Eğitimler](https://www.provida.com.tr/egitimler.html)
 - [İletişim](https://www.provida.com.tr/iletisim.html)
